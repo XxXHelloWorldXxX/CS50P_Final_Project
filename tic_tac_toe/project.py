@@ -285,13 +285,26 @@ def game_over():
 
 def start_two_player_game():
     print("\nPlayer 1 is X\nPlayer 2 is O\n")
-    while True:
-        print_field("X")
-        player_turn("X")
-        check_field()
-        print_field("O")
-        player_turn("O")
-        check_field()
+    # Coin Toss (So to speak) who begins
+    result = choice(["Player 1", "Player 2"])
+    print(result, "begins")
+    if result == "Player 1":
+        while True:
+            while True:
+                print_field("X")
+                player_turn("X")
+                check_field()
+                print_field("O")
+                player_turn("O")
+                check_field()
+    else:
+        while True:
+            print_field("O")
+            player_turn("O")
+            check_field()
+            print_field("X")
+            player_turn("X")
+            check_field()
 
 
 def start_one_player_game():
